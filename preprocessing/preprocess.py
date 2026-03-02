@@ -413,7 +413,7 @@ def preprocess(dataset_path, mask_path, mode, num_frames, stride, logger):
 
 if __name__ == '__main__':
     # from config.yaml load parameters
-    yaml_path = './config.yaml'
+    yaml_path =  './config.yaml'
     # open the yaml file
     try:
         with open(yaml_path, 'r') as f:
