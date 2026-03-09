@@ -353,11 +353,20 @@ def video_manipulate(
 
 def preprocess(dataset_path, mask_path, mode, num_frames, stride, logger):
     # Define paths to videos in dataset
+    # old code 
+    # movies_path_list = sorted([Path(p) for p in glob.glob(os.path.join(dataset_path, '**/*.mp4'), recursive=True)])
+    # if len(movies_path_list) == 0:
+    #     logger.error(f"No videos found in {dataset_path}")
+    #     sys.exit()
+    # logger.info(f"{len(movies_path_list)} videos found in {dataset_path}")
+    
     movies_path_list = sorted([Path(p) for p in glob.glob(os.path.join(dataset_path, '**/*.mp4'), recursive=True)])
     if len(movies_path_list) == 0:
-        logger.error(f"No videos found in {dataset_path}")
-        sys.exit()
+        logger.warning(f"No videos found in {dataset_path}, skipping...")
+        return
+
     logger.info(f"{len(movies_path_list)} videos found in {dataset_path}")
+    
     
     # Define paths to masks in dataset
     if mask_path is not None:
