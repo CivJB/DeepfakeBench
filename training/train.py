@@ -38,7 +38,7 @@ from logger import create_logger, RankFilter
 
 parser = argparse.ArgumentParser(description='Process some paths.')
 parser.add_argument('--detector_path', type=str,
-                    default='/data/home/zhiyuanyan/DeepfakeBenchv2/training/config/detector/sbi.yaml',
+                    default= 'C:/Users/FVMSU/Documents/jack-bush/Projects/DeepfakeBench/training/config/detector/xception.yaml',
                     help='path to detector YAML file')
 parser.add_argument("--train_dataset", nargs="+")
 parser.add_argument("--test_dataset", nargs="+")
@@ -242,7 +242,7 @@ def main():
     config['save_ckpt'] = args.save_ckpt
     config['save_feat'] = args.save_feat
     if config['lmdb']:
-        config['dataset_json_folder'] = 'preprocessing/dataset_json_v3'
+        config['dataset_json_folder'] = 'preprocessing/dataset_json' #'preprocessing/dataset_json_v3'
     # create logger
     timenow=datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     task_str = f"_{config['task_target']}" if config.get('task_target', None) is not None else ""

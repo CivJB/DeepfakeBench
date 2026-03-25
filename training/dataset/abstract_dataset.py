@@ -108,7 +108,9 @@ class DeepfakeAbstractBaseDataset(data.Dataset):
             'label': self.label_list, 
         }
         
-        self.transform = self.init_data_aug_method()
+        # OLD CODE: self.transform = self.init_data_aug_method()
+        # NEW CODE:  
+        self.transform = self.init_data_aug_method() if self.config['use_data_augmentation'] else None
         
     def init_data_aug_method(self):
         trans = A.Compose([           
@@ -120,8 +122,15 @@ class DeepfakeAbstractBaseDataset(data.Dataset):
                 IsotropicResize(max_side=self.config['resolution'], interpolation_down=cv2.INTER_AREA, interpolation_up=cv2.INTER_LINEAR),
                 IsotropicResize(max_side=self.config['resolution'], interpolation_down=cv2.INTER_LINEAR, interpolation_up=cv2.INTER_LINEAR),
             ], p = 0 if self.config['with_landmark'] else 1),
+            # OLD CODE 
+            # A.OneOf([
+                # A.RandomBrightnessContrast(brightness_limit=self.config['data_aug']['brightness_limit'], contrast_limit=self.config['data_aug']['contrast_limit']),
+                # A.FancyPCA(),
+                # A.HueSaturationValue()
+            # ], p=0.5),
+            #CORRECTED CODE
             A.OneOf([
-                A.RandomBrightnessContrast(brightness_limit=self.config['data_aug']['brightness_limit'], contrast_limit=self.config['data_aug']['contrast_limit']),
+                A.RandomBrightnessContrast(brightness_limit=self.config['data_aug']['brightness_limit'], contrast_limit=self.config['data_aug']['contrast_limit'], p=1.0),
                 A.FancyPCA(),
                 A.HueSaturationValue()
             ], p=0.5),

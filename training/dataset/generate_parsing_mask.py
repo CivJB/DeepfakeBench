@@ -113,7 +113,7 @@ if __name__ == '__main__':
     with open('./training/config/train_config.yaml', 'r') as f:
         config2 = yaml.safe_load(f)
     config2['data_manner'] = 'lmdb'
-    config['dataset_json_folder'] = '/Youtu_Pangu_Security_Public/youtu-pangu-public/zhiyuanyan/DeepfakeBenchv2/preprocessing/dataset_json'
+    config['dataset_json_folder'] = 'C:/Users/FVMSU/Documents/jack-bush/Projects/DeepfakeBench/preprocessing/dataset_json' # '/Youtu_Pangu_Security_Public/youtu-pangu-public/zhiyuanyan/DeepfakeBenchv2/preprocessing/dataset_json'
     config.update(config2)
     train_set = YZYDataset(config=config, mode='train')
     train_data_loader = \

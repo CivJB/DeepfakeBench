@@ -1,8 +1,8 @@
 # log dir 
-log_dir: /data/home/zhiyuanyan/DeepfakeBench/logs/testing_bench
+log_dir: C:/Users/FVMSU/Documents/jack-bush/Projects/DeepfakeBench/training/logs/testing_bench #/data/home/zhiyuanyan/DeepfakeBench/logs/testing_bench
 
 # model setting
-pretrained: ./training/pretrained/xception-b5690688.pth   # path to a pre-trained model, if using one
+pretrained: C:/Users/FVMSU/Documents/jack-bush/Projects/Deepfakebench/training/pretrained/xception-b5690688.pth  # old path: ./pretrained/xception-b5690688.pth   # path to a pre-trained model, if using one
 model_name: xception   # model name
 backbone_name: xception  # backbone name
 
@@ -29,10 +29,10 @@ with_landmark: false   # whether to include facial landmark information in the i
 
 
 # data augmentation
-use_data_augmentation: true  # Add this flag to enable/disable data augmentation
+use_data_augmentation: false #true  # Add this flag to enable/disable data augmentation
 data_aug:
   flip_prob: 0.5
-  rotate_prob: 0.0
+  rotate_prob: 0.1
   rotate_limit: [-10, 10]
   blur_prob: 0.5
   blur_limit: [3, 7]
