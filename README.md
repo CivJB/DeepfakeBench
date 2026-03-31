@@ -272,6 +272,23 @@ The downloaded json configurations should be arranged as:
 preprocessing
 ├── dataset_json
 |   ├── FaceForensics++.json
+|   ├── DeepFakeDetection.json
+|   ├── test.json
+|   ├── train.json
+|   ├── val.json
+├── dlib_tools
+|   ├── shape_predictor_81_face_landmarks.json
+├── logs
+|   ├── FaceForensics++.log
+├── config.yaml
+├── dataset2lmdb_test.py
+├── preprocess.py
+├── rearrange.py
+
+
+
+
+
 ```
 
 You may also store your configurations in a different folder by specifying the `dataset_json_folder` in `training\test_config.yaml` and `training\train_config.yaml`.
